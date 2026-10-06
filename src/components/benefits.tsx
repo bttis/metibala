@@ -31,7 +31,7 @@ export default function Benefits() {
     <div id="inicio">
       <div
         id="beneficios"
-        className="relative w-full h-[800px] overflow-hidden flex items-center px-6 md:px-20 py-16"
+        className="relative w-full h-[800px] overflow-hidden flex items-center px-6 md:px-20 py-16 max-md:h-auto max-md:pt-20 max-md:pb-6"
       >
         <div className="absolute w-full h-full inset-0 bg-gradient-to-r from-black via-black/60 to-black/10 z-[5]" />
         <Image
@@ -49,12 +49,7 @@ export default function Benefits() {
         </p>
 
         <div className="relative z-10 max-w-[760px]">
-          <p className="text-red-600 font-bold tracking-widest text-xs uppercase leading-relaxed">
-            Vitalidade hoje
-            <br />
-            Uma vida mais extraordinária amanhã
-          </p>
-          <h1 className="text-5xl md:text-6xl font-teko font-bold leading-[1.05] mt-3">
+          <h1 className="text-5xl md:text-6xl font-teko font-bold leading-[1.05] max-md:leading-[0.9]">
             Mais confiança.
             <br />
             Mais presença.
@@ -63,22 +58,22 @@ export default function Benefits() {
             <br />
             <span className="text-red-700">os momentos.</span>
           </h1>
-          <p className="text-base mt-5 text-white/80 max-w-[460px]">
+          <p className="text-base mt-5 max-md:mt-3 text-white/80 max-w-[460px]">
             Libid 365 é para homens e mulheres que desejam mais vitalidade,
             confiança, bem-estar e autocuidado diário.
           </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 max-md:flex-col max-md:gap-y-5">
+          <div className="mt-7 max-md:mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 max-md:flex-col max-md:gap-y-3">
             <Link href="#kits" className="max-md:w-full max-md:max-w-[360px]">
               <Button
                 variant="default"
                 className="px-8 py-6 max-md:w-full max-md:py-7 max-md:text-lg"
                 data-umami-event="button-quero"
               >
-                Comprar Agora
+                Despertar minha libido
                 <IconArrowRight className="size-4 max-md:size-5" />
               </Button>
             </Link>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60 max-md:flex-col max-md:mt-4 max-md:gap-y-3 max-md:text-base">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60 max-md:flex-col max-md:gap-y-2 max-md:text-base">
               <div className="flex items-center gap-2">
                 <IconWallet className="text-red-600 size-4 max-md:size-5" />
                 Pagamento seguro
