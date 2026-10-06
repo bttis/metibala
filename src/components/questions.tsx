@@ -49,7 +49,7 @@ export default function Questions() {
       className="relative w-full h-auto overflow-hidden py-16 px-6 md:px-10"
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr_240px] gap-10 items-start">
-        <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05]">
+        <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05] max-md:text-center">
           Dúvidas
           <br /> frequentes
         </h2>
@@ -87,7 +87,7 @@ export default function Questions() {
           })}
         </div>
 
-        <div className="max-w-[240px] flex items-start gap-3">
+        <div className="max-w-[240px] flex items-start gap-3 max-md:mx-auto max-md:items-center">
           <IconHeadset className="text-red-600 size-8 shrink-0" />
           <div>
             <h3 className="font-bold text-sm">Ainda tem dúvidas?</h3>

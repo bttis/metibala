@@ -1,3 +1,4 @@
+import BenefitsCarousel from '@/components/benefits-carousel'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import {
@@ -66,28 +67,28 @@ export default function Benefits() {
             Libid 365 é para homens e mulheres que desejam mais vitalidade,
             confiança, bem-estar e autocuidado diário.
           </p>
-          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3">
-            <Link href="#kits">
+          <div className="mt-7 flex flex-wrap items-center gap-x-6 gap-y-3 max-md:flex-col max-md:gap-y-5">
+            <Link href="#kits" className="max-md:w-full max-md:max-w-[360px]">
               <Button
                 variant="default"
-                className="px-8 py-6"
+                className="px-8 py-6 max-md:w-full max-md:py-7 max-md:text-lg"
                 data-umami-event="button-quero"
               >
                 Comprar Agora
-                <IconArrowRight className="size-4" />
+                <IconArrowRight className="size-4 max-md:size-5" />
               </Button>
             </Link>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60">
+            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60 max-md:flex-col max-md:mt-4 max-md:gap-y-3 max-md:text-base">
               <div className="flex items-center gap-2">
-                <IconWallet className="text-red-600 size-4" />
+                <IconWallet className="text-red-600 size-4 max-md:size-5" />
                 Pagamento seguro
               </div>
               <div className="flex items-center gap-2">
-                <IconTruckDelivery className="text-red-600 size-4" />
+                <IconTruckDelivery className="text-red-600 size-4 max-md:size-5" />
                 Entrega para todo o Brasil
               </div>
               <div className="flex items-center gap-2">
-                <IconShieldCheckFilled className="text-red-600 size-4" />
+                <IconShieldCheckFilled className="text-red-600 size-4 max-md:size-5" />
                 Satisfação garantida
               </div>
             </div>
@@ -112,7 +113,22 @@ export default function Benefits() {
             </p>
             <span className="w-6 h-0.5 bg-red-600 mt-1.5" />
           </div>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-x-0 gap-y-6 flex-1">
+          <div className="w-full md:hidden">
+            <BenefitsCarousel
+              items={lifestyleBenefits.map((benefit) => (
+                <div
+                  key={benefit.label}
+                  className="flex flex-col items-center text-center gap-0.5"
+                >
+                  <benefit.icon className="text-red-600 size-10" />
+                  <p className="text-sm font-semibold whitespace-pre-line leading-tight">
+                    {benefit.label}
+                  </p>
+                </div>
+              ))}
+            />
+          </div>
+          <div className="grid grid-cols-3 md:grid-cols-6 gap-x-0 gap-y-6 flex-1 max-md:hidden">
             {lifestyleBenefits.map((benefit) => (
               <div
                 key={benefit.label}

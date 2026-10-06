@@ -4,7 +4,7 @@ import Link from 'next/link'
 export default function Footer() {
   return (
     <section className="relative w-full h-auto overflow-hidden bg-white/10 pt-12 px-4">
-      <div className="flex flex-col md:flex-row gap-8 justify-center max-w-[1200px] mx-auto mb-4">
+      <div className="flex flex-col md:flex-row gap-8 justify-center max-w-[1200px] mx-auto mb-4 max-md:grid max-md:grid-cols-2 max-md:gap-x-4 max-md:items-start max-md:text-center">
         <div className="flex flex-col">
           <h1 className="font-bold">Links</h1>
           <div className="mt-2 text-white/50">
@@ -15,17 +15,6 @@ export default function Footer() {
             <p>Termos e condições</p>
           </div>
         </div>
-        <div className="flex flex-col max-w-[300px]">
-          <h1 className="font-bold">Aviso</h1>
-          <div className="mt-2 text-white/50">
-            <p>
-              Não comercializamos o Libid 365 no Mercado Livre. A venda só
-              pode ser realizada através deste Site Oficial e não nos
-              responsabilizamos por compras realizadas em outros sites. Evite
-              falsificações e riscos a sua saúde.
-            </p>
-          </div>
-        </div>
         <div className="flex flex-col">
           <h1 className="font-bold">Formas de pagamento</h1>
           <div className="mt-2">
@@ -34,24 +23,30 @@ export default function Footer() {
               height={50}
               src="/formas-pagamento.png"
               alt="formas-pagamento"
+              className="max-md:w-full max-md:h-auto"
             />
           </div>
         </div>
-        <div className="flex flex-col">
-          <h1 className="font-bold">Site seguro</h1>
-          <div className="mt-2">
-            <Image
-              width={200}
-              height={50}
-              src="/site-seguro.png"
-              alt="site-seguro"
-            />
+        <div className="flex flex-col max-md:col-span-2 max-md:grid max-md:grid-cols-2 max-md:gap-x-4 max-md:items-start">
+          <div>
+            <h1 className="font-bold">Site seguro</h1>
+            <div className="mt-2">
+              <Image
+                width={200}
+                height={50}
+                src="/site-seguro.png"
+                alt="site-seguro"
+                className="max-md:w-full max-md:h-auto"
+              />
+            </div>
           </div>
-          <div className="mt-2">
+          <div className="mt-2 max-md:mt-0">
             <h1 className="font-bold">Nosso Contato</h1>
-            <p className="mt-2">contato@libid365.com.br</p>
+            <p className="mt-2 max-md:text-sm max-md:break-all">
+              contato@libid365.com.br
+            </p>
           </div>
-          <h2 className="mt-6 text-white/50 font-bold">
+          <h2 className="mt-6 text-white/50 font-bold max-md:col-span-2">
             Todos direitos reservados ®Libid 365 • {new Date().getFullYear()}
           </h2>
         </div>

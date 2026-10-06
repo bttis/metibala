@@ -34,7 +34,7 @@ export default function Specialist() {
   return (
     <div id="dra-victoria" className="bg-white/[0.03] w-full py-14 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[280px_280px_1fr] gap-10 items-center">
-        <div>
+        <div className="max-md:text-center">
           <h2 className="text-4xl font-teko font-bold uppercase leading-none">
             Conheça o <span className="text-red-600">Libid 365</span>
           </h2>
@@ -89,7 +89,7 @@ export default function Specialist() {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-[1fr_260px] gap-8 items-center">
-          <blockquote className="text-white/80 text-lg leading-relaxed">
+          <blockquote className="text-white/80 text-lg leading-relaxed max-md:text-center">
             &quot;Cuidar da sua energia, da sua mente e do seu bem-estar
             também é uma forma de amor próprio. Libid 365 é um aliado de quem
             busca mais equilíbrio e vitalidade todos os dias.&quot;
@@ -97,7 +97,7 @@ export default function Specialist() {
               Dra. Victória
             </footer>
           </blockquote>
-          <div className="space-y-5">
+          <div className="space-y-5 max-md:w-fit max-md:mx-auto">
             {pillars.map((pillar) => (
               <div key={pillar.label} className="flex items-center gap-3">
                 <div className="bg-white/10 rounded-md p-2 shrink-0">

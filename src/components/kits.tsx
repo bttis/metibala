@@ -27,12 +27,12 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
       className="relative w-full overflow-hidden bg-white/[0.03] py-16 px-6 md:px-10"
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr_240px] gap-10 items-start">
-        <div className="max-w-[220px]">
+        <div className="max-w-[220px] max-md:mx-auto max-md:text-center">
           <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05]">
             Escolha o seu kit
             <br /> e transforme o seu dia.
           </h2>
-          <div className="mt-6 space-y-5">
+          <div className="mt-6 space-y-5 max-md:w-fit max-md:mx-auto">
             {trustBullets.map((bullet) => (
               <div key={bullet.label} className="flex items-center gap-3">
                 <bullet.icon className="text-red-600 size-7 shrink-0" />
@@ -81,7 +81,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
           />
         </div>
 
-        <div className="max-w-[240px]">
+        <div className="max-w-[240px] max-md:mx-auto max-md:text-center">
           <h2 className="font-teko text-3xl font-bold leading-none">
             LIBID <span className="text-red-600">365</span>
           </h2>
@@ -89,7 +89,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             Vitalidade hoje.
             <br /> Uma vida mais extraordinária amanhã.
           </p>
-          <div className="mt-5 space-y-5">
+          <div className="mt-5 space-y-5 max-md:w-fit max-md:mx-auto">
             {formulaChecklist.map((item) => (
               <div key={item} className="flex items-center gap-3">
                 <div className="size-6 shrink-0 rounded-full border-2 border-red-600 flex items-center justify-center">
