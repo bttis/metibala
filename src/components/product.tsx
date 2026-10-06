@@ -66,6 +66,9 @@ export function Product({
             12x de {convertToBRL(installmentPrice)}
           </p>
         )}
+        <p className="text-xs text-white/50 mt-2">
+          Frete Grátis acima de R$199,90
+        </p>
         <Link href={finalLink} target="_blank" className="w-full mt-6" rel="noreferrer">
           <Button className="w-full py-5" data-umami-event={umamiEvent}>
             {cta}

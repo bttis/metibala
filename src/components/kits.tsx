@@ -46,8 +46,8 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
           <Product
             title="1 FRASCO"
             subtitle="Ideal para começar"
-            price={97.0}
-            installmentPrice={9.7}
+            price={89.9}
+            installmentPrice={8.99}
             cta="Comprar Agora"
             imageUrl="/uma-unidade.png"
             umamiEvent="click-kit-1"
@@ -58,8 +58,8 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
           <Product
             title="3 FRASCOS"
             subtitle="Resultados ainda melhores"
-            price={247.0}
-            installmentPrice={24.7}
+            price={199.9}
+            installmentPrice={19.99}
             cta="Comprar Agora"
             imageUrl="/tres-unidades.png"
             umamiEvent="click-kit-3"
@@ -72,8 +72,8 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
           <Product
             title="2 FRASCOS"
             subtitle="Mais resultados, mais vitalidade"
-            price={177.0}
-            installmentPrice={17.7}
+            price={159.9}
+            installmentPrice={15.99}
             cta="Comprar Agora"
             imageUrl="/duas-unidades.png"
             umamiEvent="click-kit-2"
