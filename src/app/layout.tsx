@@ -2,7 +2,7 @@ import type { Metadata } from 'next'
 import './globals.css'
 import { ReactNode } from 'react'
 import localFont from 'next/font/local'
-import { Barlow } from 'next/font/google'
+import { Barlow, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
 import { env } from '@/env'
 
@@ -10,6 +10,12 @@ const barlowSans = Barlow({
   variable: '--font-sans',
   subsets: ['latin'],
   weight: ['400', '500', '600', '700', '800']
+})
+
+const playfairFont = Playfair_Display({
+  variable: '--font-playfair',
+  subsets: ['latin'],
+  weight: ['400', '500', '600', '700', '800', '900']
 })
 
 const tekoFont = localFont({
@@ -52,7 +58,7 @@ export default function RootLayout({
         )}
       </head>
       <body
-        className={`${barlowSans.variable} ${tekoFont.variable} antialiased`}
+        className={`${barlowSans.variable} ${tekoFont.variable} ${playfairFont.variable} antialiased`}
       >
         {children}
       </body>
