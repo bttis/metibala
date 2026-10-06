@@ -48,7 +48,7 @@ export default function Benefits() {
           Juntos <br /> por uma vida <br /> mais intensa
         </p>
 
-        <div className="relative z-10 max-w-[760px] lg:max-w-none">
+        <div className="relative z-10 max-w-[760px] lg:max-w-none lg:pl-16">
           <h1 className="text-[10.5vw] md:text-6xl font-teko font-bold leading-[1.15] max-md:leading-[1]">
             <span className="whitespace-nowrap">A vontade diminuiu?</span>
             <br />

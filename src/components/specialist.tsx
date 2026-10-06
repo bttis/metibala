@@ -21,8 +21,8 @@ export default function Specialist() {
   return (
     <div id="dra-victoria" className="bg-white/[0.03] w-full pt-14 pb-8 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_280px_1fr] gap-10 items-center">
-        <div className="max-md:text-center lg:max-w-[280px] lg:justify-self-end">
-          <h2 className="text-4xl font-teko font-bold uppercase leading-none">
+        <div className="max-md:text-center lg:max-w-[340px] lg:justify-self-end">
+          <h2 className="text-4xl font-teko font-bold uppercase leading-none lg:whitespace-nowrap">
             Conheça o <span className="text-red-600">Libid 365</span>
           </h2>
           <p className="text-white/60 text-sm mt-4 leading-relaxed">
