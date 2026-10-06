@@ -13,21 +13,33 @@ import { useState } from 'react'
 const testimonials = [
   {
     quote:
-      'Recuperei minha energia e me sinto mais confiante no dia a dia. Libid 365 realmente fez diferença na minha rotina.',
+      'Voltei a sentir aquela vontade que tinha sumido. Tenho mais disposição na hora H e muito mais confiança na cama.',
     name: 'Carlos M.',
     city: 'São Paulo - SP'
   },
   {
     quote:
-      'Me sinto mais disposta, com mais foco e autoestima. É um cuidado que eu indico de olhos fechados!',
+      'Minha libido estava lá embaixo e eu me sentia desconectada. Hoje sinto mais desejo e prazer, e minha autoestima voltou!',
     name: 'Juliana R.',
     city: 'Curitiba - PR'
   },
   {
     quote:
-      'Além da energia, notei mais equilíbrio e bem-estar. Libid 365 melhorou comigo e na minha relação.',
+      'A intimidade com minha esposa voltou a ter aquela chama do começo. Mais vontade, mais desempenho e um casal muito mais feliz.',
     name: 'Renato F.',
     city: 'Belo Horizonte - MG'
+  },
+  {
+    quote:
+      'Depois dos 40 achei que a falta de desejo era normal. Com Libid 365 voltei a ter iniciativa e o clima com meu marido mudou completamente.',
+    name: 'Patrícia L.',
+    city: 'Rio de Janeiro - RJ'
+  },
+  {
+    quote:
+      'A correria e o cansaço tinham apagado meu tesão. Hoje chego em casa com energia e vontade de aproveitar a noite a dois.',
+    name: 'Marcelo S.',
+    city: 'Porto Alegre - RS'
   }
 ]
 
@@ -40,14 +52,13 @@ export default function Reviews() {
   return (
     <section
       id="depoimentos"
-      className="relative w-full overflow-hidden py-16 px-6 md:px-10"
+      className="relative w-full overflow-hidden pt-8 pb-16 px-6 md:px-10"
     >
-      <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr_220px] gap-10 items-center">
-        <div className="max-w-[220px] max-md:mx-auto max-md:text-center">
+      <div className="max-w-[1400px] mx-auto flex flex-col gap-10">
+        <div className="text-center">
           <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05]">
-            O que
-            <br /> nossos clientes
-            <br /> dizem
+            O que nossos
+            <br className="md:hidden" /> clientes dizem
           </h2>
           <p className="text-sm text-white/50 mt-4 leading-relaxed uppercase tracking-wide">
             Histórias reais de mais equilíbrio, confiança e bem-estar.
@@ -74,28 +85,32 @@ export default function Reviews() {
                   className="basis-full md:basis-1/2 lg:basis-1/3"
                 >
                   <div className="bg-white/[0.04] border border-white/10 rounded-xl p-6 h-full flex flex-col">
-                    <div className="flex items-center gap-1 max-md:justify-center">
-                      {new Array(5).fill(null).map((_, index) => (
-                        <Star
-                          key={index}
-                          className="fill-yellow-400 text-yellow-400 size-4"
-                        />
-                      ))}
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="size-9 rounded-full bg-red-600/20 border border-red-600/40 flex items-center justify-center font-bold text-sm text-red-500 shrink-0">
+                          {testimonial.name.charAt(0)}
+                        </div>
+                        <div className="min-w-0">
+                          <p className="text-sm font-bold truncate">
+                            {testimonial.name}
+                          </p>
+                          <p className="text-xs text-white/50 truncate">
+                            {testimonial.city}
+                          </p>
+                        </div>
+                      </div>
+                      <div className="flex items-center gap-1 shrink-0">
+                        {new Array(5).fill(null).map((_, index) => (
+                          <Star
+                            key={index}
+                            className="fill-yellow-400 text-yellow-400 size-4"
+                          />
+                        ))}
+                      </div>
                     </div>
                     <p className="text-sm text-white/80 italic mt-4 flex-1 max-md:text-center">
                       &quot;{testimonial.quote}&quot;
                     </p>
-                    <div className="flex items-center gap-3 mt-6 max-md:justify-center">
-                      <div className="size-9 rounded-full bg-red-600/20 border border-red-600/40 flex items-center justify-center font-bold text-sm text-red-500">
-                        {testimonial.name.charAt(0)}
-                      </div>
-                      <div>
-                        <p className="text-sm font-bold">{testimonial.name}</p>
-                        <p className="text-xs text-white/50">
-                          {testimonial.city}
-                        </p>
-                      </div>
-                    </div>
                   </div>
                 </CarouselItem>
               ))}
@@ -108,12 +123,6 @@ export default function Reviews() {
           >
             <ChevronRight className="size-5" />
           </button>
-        </div>
-
-        <div className="max-w-[220px] lg:text-right max-md:mx-auto max-md:text-center">
-          <h2 className="text-2xl font-teko font-bold uppercase leading-tight">
-            &quot;Mais que resultados, pessoas mais felizes.&quot;
-          </h2>
         </div>
       </div>
     </section>

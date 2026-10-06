@@ -24,12 +24,12 @@ export default async function Home({
         <Navbar />
         <Benefits />
         <Specialist />
+        <Reviews />
         <div className="flex flex-col md:flex-row w-full">
           <Energy />
           <Enough />
         </div>
         <Kits affiliateRef={ref} />
-        <Reviews />
         <Guarantee />
         <Questions />
       </main>

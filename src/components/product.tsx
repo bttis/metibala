@@ -14,6 +14,7 @@ interface ProductProps {
   umamiEvent: string
   mostPopular?: boolean
   affiliateRef?: string
+  className?: string
 }
 
 export function Product({
@@ -26,7 +27,8 @@ export function Product({
   installmentPrice,
   umamiEvent,
   mostPopular,
-  affiliateRef
+  affiliateRef,
+  className = ''
 }: ProductProps) {
   const finalLink = affiliateRef
     ? `${productLink}?metadata[affiliate]=${affiliateRef}`
@@ -38,7 +40,7 @@ export function Product({
         mostPopular
           ? 'border-4 border-red-600 shadow-[0_0_30px_-10px_rgba(207,13,47,0.6)]'
           : 'border border-white/10'
-      }`}
+      } ${className}`}
     >
       {mostPopular && (
         <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-1.5 rounded-full font-bold text-[11px] uppercase tracking-wide whitespace-nowrap">

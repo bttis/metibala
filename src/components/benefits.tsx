@@ -48,32 +48,30 @@ export default function Benefits() {
           Juntos <br /> por uma vida <br /> mais intensa
         </p>
 
-        <div className="relative z-10 max-w-[760px]">
-          <h1 className="text-5xl md:text-6xl font-teko font-bold leading-[1.05] max-md:leading-[0.9]">
-            Mais confiança.
+        <div className="relative z-10 max-w-[760px] lg:max-w-none">
+          <h1 className="text-[10.5vw] md:text-6xl font-teko font-bold leading-[1.15] max-md:leading-[1]">
+            <span className="whitespace-nowrap">A vontade diminuiu?</span>
             <br />
-            Mais presença.
+            Não deixe a <span className="text-red-700">hora H</span>
             <br />
-            <span className="text-red-700">Mais você em todos</span>
-            <br />
-            <span className="text-red-700">os momentos.</span>
+            para depois.
           </h1>
-          <p className="text-base mt-5 max-md:mt-3 text-white/80 max-w-[460px]">
-            Libid 365 é para homens e mulheres que desejam mais vitalidade,
-            confiança, bem-estar e autocuidado diário.
+          <p className="text-base mt-3 text-white/80 max-w-[460px]">
+            Mais desejo. Mais confiança. Mais conexão. Mais você nos momentos
+            que importam.
           </p>
-          <div className="mt-7 max-md:mt-5 flex flex-wrap items-center gap-x-6 gap-y-3 max-md:flex-col max-md:gap-y-3">
+          <div className="mt-5 flex items-center gap-x-6 gap-y-3 max-md:flex-col max-md:gap-y-3">
             <Link href="#kits" className="max-md:w-full max-md:max-w-[360px]">
               <Button
                 variant="default"
                 className="px-8 py-6 max-md:w-full max-md:py-7 max-md:text-lg"
                 data-umami-event="button-quero"
               >
-                Despertar minha libido
+                QUERO MINHA VONTADE DE VOLTA
                 <IconArrowRight className="size-4 max-md:size-5" />
               </Button>
             </Link>
-            <div className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm text-white/60 max-md:flex-col max-md:gap-y-2 max-md:text-base">
+            <div className="flex flex-col md:items-start lg:flex-row lg:items-center lg:gap-x-6 whitespace-nowrap gap-y-1.5 text-sm text-white/60 max-md:gap-y-2 max-md:text-base">
               <div className="flex items-center gap-2">
                 <IconWallet className="text-red-600 size-4 max-md:size-5" />
                 Pagamento seguro
@@ -98,8 +96,8 @@ export default function Benefits() {
         </div>
       </div>
 
-      <div className="bg-[#151515] z-10 w-full py-6 px-6 md:px-20">
-        <div className="flex flex-col lg:flex-row items-center gap-8">
+      <div className="bg-[#151515] z-10 w-full py-4 px-6 md:px-20">
+        <div className="flex flex-col lg:flex-row items-center gap-5">
           <div className="flex flex-col items-center lg:items-start shrink-0 lg:w-[180px]">
             <p className="text-sm font-medium text-white/60 uppercase tracking-wide leading-relaxed text-center lg:text-left">
               Mais do que um suplemento.
@@ -115,7 +113,7 @@ export default function Benefits() {
                   key={benefit.label}
                   className="flex flex-col items-center text-center gap-0.5"
                 >
-                  <benefit.icon className="text-red-600 size-10" />
+                  <benefit.icon className="text-red-600 size-8" />
                   <p className="text-sm font-semibold whitespace-pre-line leading-tight">
                     {benefit.label}
                   </p>
@@ -129,7 +127,7 @@ export default function Benefits() {
                 key={benefit.label}
                 className="flex flex-col items-center text-center gap-0.5 mx-[-8px] first:ml-0 last:mr-0"
               >
-                <benefit.icon className="text-red-600 size-10" />
+                <benefit.icon className="text-red-600 size-8" />
                 <p className="text-sm font-semibold whitespace-pre-line leading-tight">
                   {benefit.label}
                 </p>

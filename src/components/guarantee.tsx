@@ -1,89 +1,46 @@
 import Image from 'next/image'
-import { Button } from './ui/button'
-import Link from 'next/link'
+import BenefitsCarousel from './benefits-carousel'
+
+const guarantees = [
+  {
+    image: { src: '/metibala-caixa.png', alt: 'metibala-caixa', width: 280 },
+    imageClassName: 'rounded-xl',
+    title: 'Entrega sigilosa e garantida',
+    description:
+      'Seus potes de Libid 365 serão enviados com total sigilo e segurança, desde a embalagem do produto até a entrega.'
+  },
+  {
+    image: { src: '/anvisa.png', alt: 'anvisa', width: 140 },
+    title: 'Aprovado pela ANVISA',
+    description:
+      'Libid 365 segue os padrões de qualidade e segurança exigidos pela ANVISA em todas as etapas de produção.'
+  }
+]
+
+const guaranteeCards = guarantees.map((guarantee) => (
+  <div
+    key={guarantee.title}
+    className="w-full h-full md:w-[360px] text-center border border-white/20 p-6 rounded-xl flex flex-col items-center"
+  >
+    <div className="h-40 flex items-center justify-center">
+      <Image
+        src={guarantee.image.src}
+        alt={guarantee.image.alt}
+        width={guarantee.image.width}
+        height={100}
+        priority={false}
+        className={`max-h-full w-auto object-contain ${guarantee.imageClassName ?? ''}`}
+      />
+    </div>
+    <h1 className="text-red-600 font-semibold mt-4">{guarantee.title}</h1>
+    <p className="text-white/50 mt-4">{guarantee.description}</p>
+  </div>
+))
 
 export default function Guarantee() {
   return (
     <div>
-      <div className="relative w-full min-h-[600px] overflow-hidden bg-white/10 flex items-center justify-center px-4">
-        <div className="flex flex-col items-center justify-center max-w-[1200px] w-full">
-          <h1 className="text-4xl md:text-5xl font-teko font-semibold mt-16 text-center">
-            Seu risco é ZERO! Garantia <br /> incondicional{' '}
-            <span className="text-red-700 font-bold">Libid 365!</span>
-          </h1>
-
-          <div className="flex flex-col md:flex-row gap-8 md:gap-12 mt-20 w-full items-center md:items-stretch justify-center">
-            <div className="w-full md:w-[360px] text-center border border-white/20 p-6 rounded-xl flex flex-col items-center">
-              <div className="h-40 flex items-center justify-center">
-                <Image
-                  src="/metibala-caixa.png"
-                  alt="metibala-caixa"
-                  width={280}
-                  height={100}
-                  priority={false}
-                  className="max-h-full w-auto object-contain rounded-xl"
-                />
-              </div>
-              <h1 className="text-red-600 font-semibold mt-4">
-                Entrega sigilosa e garantida
-              </h1>
-              <p className="text-white/50 mt-4">
-                Seus potes de Libid 365 serão enviados com total sigilo e
-                segurança, desde a embalagem do produto até a entrega.
-              </p>
-            </div>
-            <div className="w-full md:w-[360px] text-center border border-white/20 p-6 rounded-xl flex flex-col items-center">
-              <div className="h-40 flex items-center justify-center">
-                <Image
-                  src="/guarantee.png"
-                  alt="garantia"
-                  width={160}
-                  height={100}
-                  priority={false}
-                  className="max-h-full w-auto object-contain"
-                />
-              </div>
-              <h1 className="text-red-600 font-semibold mt-4">
-                30 dias de garantia
-              </h1>
-              <p className="text-white/50 mt-4">
-                Se você não sentir os resultados em 30 dias, devolvemos 100% do
-                seu dinheiro, sem perguntas.
-              </p>
-            </div>
-            <div className="w-full md:w-[360px] text-center border border-white/20 p-6 rounded-xl flex flex-col items-center">
-              <div className="h-40 flex items-center justify-center">
-                <Image
-                  src="/anvisa.png"
-                  alt="anvisa"
-                  width={140}
-                  height={100}
-                  priority={false}
-                  className="max-h-full w-auto object-contain"
-                />
-              </div>
-              <h1 className="text-red-600 font-semibold mt-4">
-                Aprovado pela ANVISA
-              </h1>
-              <p className="text-white/50 mt-4">
-                Libid 365 segue os padrões de qualidade e segurança exigidos
-                pela ANVISA em todas as etapas de produção.
-              </p>
-            </div>
-          </div>
-
-          <Link href="#kits">
-            <Button
-              variant="default"
-              className="mt-8 mb-10 p-6"
-              data-umami-event="button-quero"
-            >
-              Quero minha transformação agora
-            </Button>
-          </Link>
-        </div>
-      </div>
-      <div className="relative w-full max-w-[1200px] h-[600px] md:h-[380px] mx-auto mt-20 rounded-3xl overflow-hidden mb-12">
+      <div className="relative w-full max-w-[1200px] h-[600px] md:h-[380px] mx-auto mt-20 rounded-3xl overflow-hidden">
         <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-black/30 to-black z-[5] md:hidden" />
         <Image
           src="/refund.png"
@@ -110,6 +67,20 @@ export default function Guarantee() {
             height={200}
             className="mb-4"
           />
+        </div>
+      </div>
+
+      <div className="w-full max-w-[1200px] mx-auto mt-10 mb-12 px-4">
+        <div className="md:hidden">
+          <BenefitsCarousel
+            items={guaranteeCards}
+            itemClassName="basis-full"
+            interval={4000}
+          />
+        </div>
+
+        <div className="hidden md:flex flex-row gap-12 items-stretch justify-center">
+          {guaranteeCards}
         </div>
       </div>
     </div>

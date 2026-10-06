@@ -27,7 +27,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
       className="relative w-full overflow-hidden bg-white/[0.03] py-16 px-6 md:px-10"
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr_240px] gap-10 items-start">
-        <div className="max-w-[220px] max-md:mx-auto max-md:text-center">
+        <div className="max-w-[220px] max-md:max-w-none max-md:mx-auto max-md:text-center">
           <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05]">
             Escolha o seu kit
             <br /> e transforme o seu dia.
@@ -66,6 +66,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             productLink="https://maisvit.com/products/libid-365"
             mostPopular
             affiliateRef={affiliateRef}
+            className="max-md:order-first"
           />
 
           <Product
