@@ -1,3 +1,4 @@
+import MobileTopbar from '@/components/mobile-topbar'
 import { Button } from '@/components/ui/button'
 import Link from 'next/link'
 
@@ -11,8 +12,9 @@ const links = [
 export default function Navbar() {
   return (
     <header className="fixed top-0 left-0 z-50 w-full bg-transparent">
-      <div className="absolute inset-0 -z-10 h-28 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none" />
-      <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-6 px-6 md:px-10 h-12">
+      <MobileTopbar links={links} />
+      <div className="absolute inset-0 -z-10 h-28 bg-gradient-to-b from-black/80 via-black/40 to-transparent pointer-events-none max-md:hidden" />
+      <div className="max-w-[1400px] mx-auto flex items-center justify-between gap-6 px-6 md:px-10 h-12 max-md:hidden">
         <Link
           href="#inicio"
           className="font-teko font-bold text-3xl tracking-wide shrink-0"
