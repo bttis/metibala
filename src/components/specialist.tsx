@@ -2,42 +2,37 @@
 
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
+import Link from 'next/link'
+import { IconChevronRight } from '@tabler/icons-react'
 import { useRef, useState } from 'react'
-import { IconPlayerPlayFilled } from '@tabler/icons-react'
 
 export default function Specialist() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
-  const [showControls, setShowControls] = useState(false)
 
   const handlePlay = () => {
     if (videoRef.current) {
       videoRef.current.play()
       setIsPlaying(true)
-      setShowControls(true)
     }
   }
 
+  const handlePause = () => {
+    videoRef.current?.pause()
+  }
+
   return (
-    <div id="dra-victoria" className="bg-white/[0.03] w-full pt-14 pb-8 px-6 md:px-10">
+    <div id="dra-victoria" className="bg-white/[0.03] w-full pt-14 max-md:pt-4 pb-8 px-6 md:px-10">
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[1fr_280px_1fr] gap-10 items-center">
         <div className="max-md:text-center lg:max-w-[340px] lg:justify-self-end">
           <h2 className="text-4xl font-teko font-bold uppercase leading-none lg:whitespace-nowrap">
             Conheça o <span className="text-red-600">Libid 365</span>
           </h2>
-          <p className="text-white/60 text-sm mt-4 leading-relaxed">
+          <p className="text-white/90 font-semibold text-base mt-4 leading-relaxed">
             Veja o que a Dra. Victória explica sobre o produto, sua proposta e
             como ele pode fazer parte de uma rotina de mais vitalidade e
             bem-estar.
           </p>
-          <Button
-            variant="outline"
-            onClick={handlePlay}
-            className="mt-5 border-red-600 bg-transparent text-white text-xs px-6 py-5 hover:bg-red-600/10 hover:text-white dark:hover:bg-red-600/10 dark:hover:text-white"
-          >
-            <IconPlayerPlayFilled className="size-3" />
-            Assistir ao Vídeo
-          </Button>
         </div>
 
         <div className="relative w-full max-w-[280px] mx-auto">
@@ -58,12 +53,11 @@ export default function Specialist() {
           <video
             ref={videoRef}
             src="/metibala-video.mp4"
-            controls={showControls}
-            className="w-[280px] h-[500px] rounded-2xl object-cover"
-            onPlay={() => {
-              setIsPlaying(true)
-              setShowControls(true)
-            }}
+            playsInline
+            onClick={handlePause}
+            className="w-[280px] h-[500px] rounded-2xl object-cover cursor-pointer"
+            onPlay={() => setIsPlaying(true)}
+            onPause={() => setIsPlaying(false)}
           />
           {!isPlaying && (
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent rounded-b-2xl p-4">
@@ -75,10 +69,22 @@ export default function Specialist() {
           )}
         </div>
 
-        <blockquote className="text-white/80 text-lg leading-relaxed lg:leading-snug lg:max-w-[280px] lg:justify-self-start text-center">
-          &quot;Por trás de cada fórmula da Mais Vit, existe cuidado na escolha
-          dos ingredientes e compromisso com a qualidade.&quot;
-        </blockquote>
+        <div className="lg:max-w-[280px] lg:justify-self-start text-center">
+          <p className="text-white/80 text-lg leading-relaxed lg:leading-snug">
+            A Dra. Victória, como especialista em Saúde Integrativa, recomenda o
+            Libid 365 para quem busca mais disposição, confiança e uma vida
+            íntima mais saudável.
+          </p>
+          <Link href="#kits" className="block mt-5">
+            <Button
+              className="w-full h-auto py-3 rounded-full normal-case tracking-normal text-base font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"
+              data-umami-event="button-comecar"
+            >
+              Quero Começar Minha Mudança
+              <IconChevronRight className="size-5" stroke={3} />
+            </Button>
+          </Link>
+        </div>
       </div>
     </div>
   )

@@ -1,6 +1,7 @@
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import Link from 'next/link'
+import { IconChevronRight } from '@tabler/icons-react'
 
 const words = ['DISCIPLINA', 'CONFIANÇA', 'ENERGIA', 'RESULTADOS']
 
@@ -20,23 +21,23 @@ export default function Energy() {
       <div className="relative z-10 flex items-center justify-between w-full gap-6">
         <div className="max-w-[300px]">
           <p className="text-red-600 font-bold text-xs tracking-widest uppercase">
-            Para Eles
+            Mais vitalidade para eles
           </p>
           <h2 className="text-4xl md:text-5xl font-teko font-bold uppercase leading-[1.05] mt-1">
-            Potência é mais
-            <br /> do que desempenho.
+            Mais potência
+            <br /> e desempenho.
           </h2>
-          <p className="text-white/60 text-sm mt-4 leading-relaxed">
+          <p className="text-white/90 font-semibold text-base mt-4 leading-relaxed">
             Mais energia. Mais confiança. Mais presença. Libid 365 é para
             homens que querem estar bem, todos os dias.
           </p>
           <Link href="#kits">
             <Button
-              variant="default"
-              className="mt-6 px-6 py-5 text-xs"
+              className="mt-6 h-auto px-8 py-3 rounded-full normal-case tracking-normal text-base font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"
               data-umami-event="button-quero"
             >
               Liberte sua melhor versão
+              <IconChevronRight className="size-5" stroke={3} />
             </Button>
           </Link>
         </div>

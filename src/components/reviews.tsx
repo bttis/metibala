@@ -1,6 +1,6 @@
 'use client'
 
-import { Star } from 'lucide-react'
+import Image from 'next/image'
 import {
   Carousel,
   CarouselApi,
@@ -10,46 +10,42 @@ import {
 import { ChevronLeft, ChevronRight } from 'lucide-react'
 import { useEffect, useState } from 'react'
 
-const testimonials = [
+type Story =
+  | { type: 'image'; src: string; alt: string }
+  | { type: 'text'; text: string; background: string }
+
+const stories: Story[] = [
   {
-    quote:
-      'Voltei a sentir aquela vontade que tinha sumido. Tenho mais disposição na hora H e muito mais confiança na cama.',
-    name: 'Carlos M.',
-    city: 'São Paulo - SP'
+    type: 'image',
+    src: '/libid-depoimento-1.png',
+    alt: 'Cliente segurando o Libid 365'
   },
   {
-    quote:
-      'Minha libido estava lá embaixo e eu me sentia desconectada. Hoje sinto mais desejo e prazer, e minha autoestima voltou!',
-    name: 'Juliana R.',
-    city: 'Curitiba - PR'
+    type: 'text',
+    text: 'Quando eu vi que tinha feno-grego na composição, fiquei curiosa porque eu já tinha usado outros produtos com feno-grego antes. Mas nunca tinha usado ele junto com outros importantes para libido. Acho que foi essa combinação que fez diferença pra mim, porque senti melhora não só na vontade, mas também na disposição.',
+    background: 'bg-gradient-to-br from-red-700 via-red-900 to-black'
   },
   {
-    quote:
-      'A intimidade com minha esposa voltou a ter aquela chama do começo. Mais vontade, mais desempenho e um casal muito mais feliz.',
-    name: 'Renato F.',
-    city: 'Belo Horizonte - MG'
+    type: 'image',
+    src: '/libid-depoimento-2.jpg',
+    alt: 'Caixa com dois potes de Libid 365'
   },
   {
-    quote:
-      'Depois dos 40 achei que a falta de desejo era normal. Com Libid 365 voltei a ter iniciativa e o clima com meu marido mudou completamente.',
-    name: 'Patrícia L.',
-    city: 'Rio de Janeiro - RJ'
+    type: 'text',
+    text: 'Eu estava numa fase sem vontade pra nada e percebi que estou bem mais disposta. E a libido melhorou muito também, coisa que eu já estava achando que não ia mudar.',
+    background: 'bg-gradient-to-br from-rose-500 via-pink-700 to-purple-900'
   },
   {
-    quote:
-      'A correria e o cansaço tinham apagado meu tesão. Hoje chego em casa com energia e vontade de aproveitar a noite a dois.',
-    name: 'Marcelo S.',
-    city: 'Porto Alegre - RS'
+    type: 'image',
+    src: '/libid-depoimento-3.jpg',
+    alt: 'Cliente segurando um pote de Libid 365'
   },
   {
-    quote:
-      'Depois da gravidez meu desejo tinha sumido. Hoje me sinto mais disposta, mais bonita e voltei a ter vontade de namorar.',
-    name: 'Fernanda A.',
-    city: 'Salvador - BA'
+    type: 'text',
+    text: 'Eu percebi diferença principalmente na libido. Antes eu estava sem vontade nenhuma e agora sinto que meu desejo voltou aos poucos. Também me senti mais disposta no dia a dia.',
+    background: 'bg-gradient-to-br from-neutral-800 via-neutral-900 to-red-950'
   }
 ]
-
-type Testimonial = (typeof testimonials)[number]
 
 const AUTOPLAY_DELAY = 10000
 
@@ -71,46 +67,34 @@ function useAutoplay(api: CarouselApi) {
   }, [api])
 }
 
-function TestimonialCard({ testimonial }: { testimonial: Testimonial }) {
+function StoryCard({ story }: { story: Story }) {
   return (
-    <div className="bg-white/[0.04] border border-white/10 rounded-xl p-4 md:p-6 h-full flex flex-col">
-      <div className="flex items-center justify-between gap-3">
-        <div className="flex items-center gap-3 min-w-0">
-          <div className="size-8 md:size-9 rounded-full bg-red-600/20 border border-red-600/40 flex items-center justify-center font-bold text-sm text-red-500 shrink-0">
-            {testimonial.name.charAt(0)}
-          </div>
-          <div className="min-w-0">
-            <p className="text-sm font-bold truncate">{testimonial.name}</p>
-            <p className="text-xs text-white/50 truncate">{testimonial.city}</p>
-          </div>
+    <div className="relative aspect-[9/16] w-full overflow-hidden rounded-2xl bg-neutral-900 shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
+      {story.type === 'image' ? (
+        <Image
+          src={story.src}
+          alt={story.alt}
+          fill
+          sizes="(max-width: 768px) 75vw, 25vw"
+          className="object-cover"
+        />
+      ) : (
+        <div
+          className={`absolute inset-0 flex items-center justify-center p-6 ${story.background}`}
+        >
+          <p className="text-center text-base font-semibold leading-snug text-white">
+            {story.text}
+          </p>
         </div>
-        <div className="flex items-center gap-1 shrink-0">
-          {new Array(5).fill(null).map((_, index) => (
-            <Star
-              key={index}
-              className="fill-yellow-400 text-yellow-400 size-3.5 md:size-4"
-            />
-          ))}
-        </div>
-      </div>
-      <p className="text-sm text-white/80 italic mt-2 md:mt-4 flex-1 max-md:text-center">
-        &quot;{testimonial.quote}&quot;
-      </p>
+      )}
     </div>
   )
 }
 
-const mobileSlides = Array.from(
-  { length: Math.ceil(testimonials.length / 3) },
-  (_, index) => testimonials.slice(index * 3, index * 3 + 3)
-)
-
 export default function Reviews() {
   const [carouselApi, setCarouselApi] = useState<CarouselApi>()
-  const [mobileCarouselApi, setMobileCarouselApi] = useState<CarouselApi>()
 
   useAutoplay(carouselApi)
-  useAutoplay(mobileCarouselApi)
 
   const handlePrev = () => carouselApi?.scrollPrev()
   const handleNext = () => carouselApi?.scrollNext()
@@ -131,28 +115,7 @@ export default function Reviews() {
           </p>
         </div>
 
-        <Carousel
-          setApi={setMobileCarouselApi}
-          opts={{ align: 'start', loop: true }}
-          className="w-full md:hidden"
-        >
-          <CarouselContent>
-            {mobileSlides.map((slide, index) => (
-              <CarouselItem key={index} className="basis-full">
-                <div className="flex flex-col gap-3">
-                  {slide.map((testimonial) => (
-                    <TestimonialCard
-                      key={testimonial.name}
-                      testimonial={testimonial}
-                    />
-                  ))}
-                </div>
-              </CarouselItem>
-            ))}
-          </CarouselContent>
-        </Carousel>
-
-        <div className="hidden md:flex items-center gap-4">
+        <div className="flex items-center gap-4">
           <button
             onClick={handlePrev}
             className="hidden md:flex items-center justify-center size-9 rounded-full bg-white/10 hover:bg-white/20 transition-colors shrink-0"
@@ -166,12 +129,12 @@ export default function Reviews() {
             className="w-full"
           >
             <CarouselContent>
-              {testimonials.map((testimonial) => (
+              {stories.map((story, index) => (
                 <CarouselItem
-                  key={testimonial.name}
-                  className="basis-full md:basis-1/2 lg:basis-1/3"
+                  key={index}
+                  className="basis-3/4 sm:basis-1/2 md:basis-1/3 lg:basis-1/4"
                 >
-                  <TestimonialCard testimonial={testimonial} />
+                  <StoryCard story={story} />
                 </CarouselItem>
               ))}
             </CarouselContent>

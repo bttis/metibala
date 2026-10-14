@@ -23,8 +23,8 @@ export default async function Home({
         <WhatsApp />
         <Navbar />
         <Benefits />
-        <Specialist />
         <Reviews />
+        <Specialist />
         <div className="flex flex-col md:flex-row w-full">
           <Energy />
           <Enough />

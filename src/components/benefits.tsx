@@ -1,31 +1,15 @@
-import BenefitsCarousel from '@/components/benefits-carousel'
 import { Button } from '@/components/ui/button'
 import Image from 'next/image'
 import {
   IconArrowRight,
-  IconBolt,
-  IconBrain,
   IconChevronRight,
   IconGenderBigender,
-  IconHeart,
-  IconInfinity,
-  IconLeaf,
   IconShieldCheckFilled,
   IconStarFilled,
   IconTruckDelivery,
-  IconUsers,
   IconWallet
 } from '@tabler/icons-react'
 import Link from 'next/link'
-
-const lifestyleBenefits = [
-  { icon: IconBolt, label: 'Mais energia\ne disposição' },
-  { icon: IconBrain, label: 'Mais foco\ne clareza mental' },
-  { icon: IconHeart, label: 'Mais confiança\nno dia a dia' },
-  { icon: IconUsers, label: 'Mais bem-estar\nfísico e emocional' },
-  { icon: IconLeaf, label: 'Mais vitalidade\npara o seu ritmo' },
-  { icon: IconInfinity, label: 'Mais conexão\ncom o que importa' }
-]
 
 const sideWords = ['DISCIPLINA', 'ENERGIA', 'CONEXÃO', 'BEM-ESTAR']
 
@@ -179,57 +163,6 @@ export default function Benefits() {
             <span key={word}>{word}</span>
           ))}
           <span className="text-red-600">LIBID 365</span>
-        </div>
-      </div>
-
-      <div className="bg-[#151515] z-10 w-full py-4 px-6 md:px-20">
-        <div className="flex flex-col lg:flex-row items-center gap-5">
-          <div className="flex flex-col items-center lg:items-start shrink-0 lg:w-[180px]">
-            <p className="text-sm font-medium text-white/60 uppercase tracking-wide leading-relaxed text-center lg:text-left">
-              Mais do que um suplemento.
-              <br />
-              Um estilo de vida.
-            </p>
-            <span className="w-6 h-0.5 bg-red-600 mt-1.5" />
-          </div>
-          <div className="w-full md:hidden">
-            <BenefitsCarousel
-              items={lifestyleBenefits.map((benefit) => (
-                <div
-                  key={benefit.label}
-                  className="flex flex-col items-center text-center gap-0.5"
-                >
-                  <benefit.icon className="text-red-600 size-8" />
-                  <p className="text-sm font-semibold whitespace-pre-line leading-tight">
-                    {benefit.label}
-                  </p>
-                </div>
-              ))}
-            />
-          </div>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-x-0 gap-y-6 flex-1 max-md:hidden">
-            {lifestyleBenefits.map((benefit) => (
-              <div
-                key={benefit.label}
-                className="flex flex-col items-center text-center gap-0.5 mx-[-8px] first:ml-0 last:mr-0"
-              >
-                <benefit.icon className="text-red-600 size-8" />
-                <p className="text-sm font-semibold whitespace-pre-line leading-tight">
-                  {benefit.label}
-                </p>
-              </div>
-            ))}
-          </div>
-          <div className="hidden lg:flex flex-col items-start shrink-0 w-[180px]">
-            <p className="text-sm font-medium text-white/60 uppercase tracking-wide leading-relaxed">
-              Pequenas escolhas
-              <br />
-              grandes diferenças
-              <br />
-              todo dia
-            </p>
-            <span className="w-6 h-0.5 bg-red-600 mt-1.5" />
-          </div>
         </div>
       </div>
     </div>
