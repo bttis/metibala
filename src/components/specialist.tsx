@@ -52,7 +52,7 @@ export default function Specialist() {
           )}
           <video
             ref={videoRef}
-            src="/metibala-video.mp4"
+            src="/metibala-video-2.mp4"
             playsInline
             onClick={handlePause}
             className="w-[280px] h-[500px] rounded-2xl object-cover cursor-pointer"
