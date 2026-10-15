@@ -7,6 +7,7 @@ import Kits from '@/components/kits'
 import Navbar from '@/components/navbar'
 import Questions from '@/components/questions'
 import Reviews from '@/components/reviews'
+import Situations from '@/components/situations'
 import Specialist from '@/components/specialist'
 import WhatsApp from '@/components/whatsapp'
 
@@ -24,6 +25,7 @@ export default async function Home({
         <Navbar />
         <Benefits />
         <Reviews />
+        <Situations />
         <Specialist />
         <div className="flex flex-col md:flex-row w-full">
           <Energy />

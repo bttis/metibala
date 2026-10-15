@@ -32,8 +32,12 @@ const guaranteeCards = guarantees.map((guarantee) => (
         className={`max-h-full w-auto object-contain ${guarantee.imageClassName ?? ''}`}
       />
     </div>
-    <h1 className="text-red-600 font-semibold mt-4">{guarantee.title}</h1>
-    <p className="text-white/50 mt-4">{guarantee.description}</p>
+    <h3 className="font-teko text-2xl font-bold uppercase leading-none mt-4">
+      {guarantee.title}
+    </h3>
+    <p className="text-base text-white/70 mt-3 leading-relaxed">
+      {guarantee.description}
+    </p>
   </div>
 ))
 
@@ -50,14 +54,14 @@ export default function Guarantee() {
         />
         <div className="relative z-10 flex max-sm:flex-col justify-center gap-20 md:gap-52 items-center w-full h-full">
           <div className="text-white/90 p-4 max-w-[350px] md:max-w-[520px] rounded-xl">
-            <h1 className="font-semibold font-teko text-3xl max-sm:text-center md:text-5xl">
+            <h2 className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl max-sm:text-center">
               Temos um desafio, caso você não tenha resultados em 30 dias,
               devolvemos{' '}
               <span className="text-red-600">100% do seu dinheiro!</span>
-            </h1>
-            <p className="text-xl mt-2 max-sm:text-center">
+            </h2>
+            <p className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl mt-4 max-sm:text-center">
               Este mês completamos 1 ano de lançamento do desafio com{' '}
-              <span className="text-red-600">NENHUM CENTAVO DEVOLVIDO.</span>
+              <span className="text-red-600">nenhum centavo devolvido.</span>
             </p>
           </div>
           <Image

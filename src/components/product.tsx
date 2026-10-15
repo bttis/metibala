@@ -70,7 +70,10 @@ export function Product({
           Frete Grátis acima de R$199,90
         </p>
         <Link href={finalLink} target="_blank" className="w-full mt-6" rel="noreferrer">
-          <Button className="w-full py-5" data-umami-event={umamiEvent}>
+          <Button
+            className="w-full h-auto py-3 rounded-full normal-case tracking-normal text-base font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"
+            data-umami-event={umamiEvent}
+          >
             {cta}
           </Button>
         </Link>
