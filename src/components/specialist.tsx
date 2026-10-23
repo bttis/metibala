@@ -29,8 +29,8 @@ export default function Specialist() {
             Conheça o <span className="text-red-600">Libid 365</span>
           </h2>
           <p className="text-white/90 font-semibold text-base mt-4 leading-relaxed">
-            Veja o que a médica Dra. Victória explica sobre o produto, sua proposta e
-            como ele pode fazer parte de uma rotina de mais vitalidade e
+            Veja o que a Médica Victoria Barbalho fala sobre o Produto, sua
+            proposta e como pode fazer parte de uma rotina de mais vitalidade e
             bem-estar.
           </p>
         </div>
@@ -61,17 +61,15 @@ export default function Specialist() {
           />
           {!isPlaying && (
             <div className="absolute bottom-0 left-0 right-0 bg-gradient-to-t from-black/90 to-transparent rounded-b-2xl p-4">
-              <p className="font-bold text-sm">Médica Dra. Victória</p>
-              <p className="text-xs text-white/60">
-                Especialista em Saúde Integrativa
-              </p>
+              <p className="font-bold text-sm">Dra. Victoria</p>
+              <p className="text-xs text-white/60">Médica Integrativa</p>
             </div>
           )}
         </div>
 
         <div className="lg:max-w-[280px] lg:justify-self-start text-center">
           <p className="text-white/80 text-lg leading-relaxed lg:leading-snug">
-            A médica Dra. Victória, como especialista em Saúde Integrativa, recomenda o
+            A médica Victoria Barbalho, médica integrativa, recomenda o
             Libid 365 para quem busca mais disposição, confiança e uma vida
             íntima mais saudável.
           </p>
