@@ -1,31 +1,23 @@
 import Image from 'next/image'
-import {
-  IconBrandWhatsapp,
-  IconStarFilled,
-  IconUser
-} from '@tabler/icons-react'
-import BenefitsCarousel from './benefits-carousel'
+import { IconStarFilled } from '@tabler/icons-react'
+import CoverflowCarousel from './coverflow-carousel'
 
 type Testimonial = {
   text: string
   name?: string
-  photo?: string
 }
 
 const testimonials: Testimonial[] = [
   {
     name: 'Marta',
-    photo: '/pessoa-1.jpg',
     text: 'Quando eu vi que tinha feno-grego na composição, fiquei curiosa porque eu já tinha usado outros produtos com feno-grego antes. Mas nunca tinha usado ele junto com outros importantes para libido. Acho que foi essa combinação que fez diferença pra mim, porque senti melhora não só na vontade, mas também na disposição.'
   },
   {
     name: 'Marcos',
-    photo: '/pessoa-2.jpg',
     text: 'Eu estava numa fase sem vontade pra nada e percebi que estou bem mais disposta. E a libido melhorou muito também, coisa que eu já estava achando que não ia mudar.'
   },
   {
     name: 'Ana',
-    photo: '/pessoa-3.jpg',
     text: 'Eu percebi diferença principalmente na libido. Antes eu estava sem vontade nenhuma e agora sinto que meu desejo voltou aos poucos. Também me senti mais disposta no dia a dia.'
   }
 ]
@@ -55,50 +47,43 @@ export default function Reviews() {
           </p>
         </div>
 
-        <BenefitsCarousel
+        <CoverflowCarousel
           items={testimonials.flatMap((testimonial, index) => [
-            <div key={`text-${index}`} className="h-full flex items-center">
-              <div className="rounded-2xl bg-white text-neutral-800 p-5 shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
-                <div className="flex items-start gap-3">
-                  <div className="relative size-12 shrink-0 overflow-hidden rounded-full bg-neutral-200 flex items-center justify-center">
-                    {testimonial.photo ? (
-                      <Image
-                        src={testimonial.photo}
-                        alt={testimonial.name ?? 'Cliente'}
-                        fill
-                        sizes="48px"
-                        className="object-cover"
-                      />
-                    ) : (
-                      <IconUser className="size-6 text-neutral-500" />
-                    )}
-                  </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-sm">
-                      {testimonial.name ?? 'Cliente Libid 365'}
-                    </p>
-                    <div className="flex text-yellow-400 mt-1">
-                      {Array.from({ length: 5 }).map((_, i) => (
-                        <IconStarFilled key={i} className="size-4" />
-                      ))}
-                    </div>
-                  </div>
-                  <IconBrandWhatsapp className="size-7 text-green-500 shrink-0" />
+            <div
+              key={`text-${index}`}
+              className="h-full rounded-3xl bg-gradient-to-br from-red-600 via-red-600 to-yellow-400 p-[2px] shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
+            >
+              <div className="h-full rounded-[calc(1.5rem-2px)] bg-white text-neutral-900 px-5 md:px-7 flex flex-col items-center justify-center text-center gap-4">
+                <div className="flex text-yellow-400">
+                  {Array.from({ length: 5 }).map((_, i) => (
+                    <IconStarFilled key={i} className="size-4" />
+                  ))}
                 </div>
-                <p className="text-sm leading-snug mt-3">{testimonial.text}</p>
+                <p className="text-[13px] md:text-base font-bold leading-snug">
+                  &quot;{testimonial.text}&quot;
+                </p>
+                {testimonial.name && (
+                  <p className="text-xs md:text-sm text-neutral-500">
+                    {testimonial.name}
+                  </p>
+                )}
               </div>
             </div>,
-            <Image
+            <div
               key={`image-${index}`}
-              src={testimonialImages[index]}
-              alt={`Depoimento de cliente ${index + 1}`}
-              width={1320}
-              height={2346}
-              sizes="(min-width: 768px) 33vw, 88vw"
-              className="w-full h-auto rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
-            />
+              className="h-full rounded-3xl bg-gradient-to-br from-red-600 via-red-600 to-yellow-400 p-[2px] shadow-[0_10px_40px_rgba(0,0,0,0.35)]"
+            >
+              <div className="relative h-full overflow-hidden rounded-[calc(1.5rem-2px)]">
+                <Image
+                  src={testimonialImages[index]}
+                  alt={`Depoimento de cliente ${index + 1}`}
+                  fill
+                  sizes="300px"
+                  className="object-cover"
+                />
+              </div>
+            </div>
           ])}
-          itemClassName="basis-[88%] md:basis-1/3"
           interval={6000}
         />
       </div>
