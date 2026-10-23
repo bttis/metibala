@@ -17,6 +17,15 @@ interface ProductProps {
   className?: string
 }
 
+export function getProductLink(
+  affiliateRef?: string,
+  productLink = 'https://maisvit.com/products/libid-365'
+) {
+  return affiliateRef
+    ? `${productLink}?metadata[affiliate]=${affiliateRef}`
+    : productLink
+}
+
 export function Product({
   cta,
   imageUrl,
@@ -30,9 +39,7 @@ export function Product({
   affiliateRef,
   className = ''
 }: ProductProps) {
-  const finalLink = affiliateRef
-    ? `${productLink}?metadata[affiliate]=${affiliateRef}`
-    : productLink
+  const finalLink = getProductLink(affiliateRef, productLink)
 
   return (
     <div

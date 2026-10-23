@@ -37,12 +37,12 @@ export default function Reviews() {
     >
       <div className="max-w-[1000px] mx-auto flex flex-col gap-8">
         <div className="text-center">
-          <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05]">
-            O que nossos
-            <br className="md:hidden" /> clientes dizem
+          <h2 className="text-[clamp(1.25rem,7vw,1.875rem)] md:text-3xl font-teko font-bold uppercase leading-[1.05] whitespace-nowrap">
+            O que nossos clientes dizem
           </h2>
-          <p className="text-sm text-white/50 mt-4 leading-relaxed uppercase tracking-wide">
-            Histórias reais de mais equilíbrio, confiança e bem-estar.
+          <p className="text-[13px] md:text-sm text-white/50 mt-4 leading-relaxed uppercase tracking-wide">
+            <span className="whitespace-nowrap">Histórias reais de mais equilíbrio,</span>
+            <br className="md:hidden" /> confiança e bem-estar.
           </p>
         </div>
 

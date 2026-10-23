@@ -1,14 +1,16 @@
 import Image from 'next/image'
 import Link from 'next/link'
 
+const message = encodeURIComponent(
+  'Olá, gostaria de saber mais sobre o Libid 365'
+)
+const phone = '5533999650074'
+export const whatsappLink = `https://wa.me/${phone}?text=${message}`
+
 export default function WhatsApp() {
-  const message = encodeURIComponent(
-    'Olá, gostaria de saber mais sobre o Libid 365'
-  )
-  const phone = '5533999650074'
   return (
     <Link
-      href={`https://wa.me/${phone}?text=${message}`}
+      href={whatsappLink}
       className="fixed bottom-2 right-2 md:bottom-8 md:right-8 z-50"
       target="_blank"
       rel="noreferrer"

@@ -1,4 +1,7 @@
 import Image from 'next/image'
+import Link from 'next/link'
+import { getProductLink } from './product'
+import { Button } from './ui/button'
 import BenefitsCarousel from './benefits-carousel'
 
 const guarantees = [
@@ -41,10 +44,14 @@ const guaranteeCards = guarantees.map((guarantee) => (
   </div>
 ))
 
-export default function Guarantee() {
+export default function Guarantee({
+  affiliateRef
+}: {
+  affiliateRef?: string
+}) {
   return (
     <div>
-      <div className="relative w-full max-w-[1200px] h-[600px] md:h-[380px] mx-auto mt-20 rounded-3xl overflow-hidden">
+      <div className="relative w-full max-w-[1200px] h-[680px] md:h-[440px] mx-auto mt-20 rounded-3xl overflow-hidden">
         <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-black/30 to-black z-[5] md:hidden" />
         <Image
           src="/refund.png"
@@ -59,17 +66,37 @@ export default function Guarantee() {
               devolvemos{' '}
               <span className="text-red-600">100% do seu dinheiro!</span>
             </h2>
-            <p className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl mt-4 max-sm:text-center">
-              Este mês completamos 1 ano de lançamento do desafio com{' '}
+            <Image
+              src="/stamp.png"
+              alt="selo"
+              width={160}
+              height={160}
+              className="sm:hidden mx-auto my-4"
+            />
+            <p className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl sm:mt-4 max-sm:text-center">
+              Este mês completamos 2 anos de lançamento do desafio com{' '}
               <span className="text-red-600">nenhum centavo devolvido.</span>
             </p>
+            <Link
+              href={getProductLink(affiliateRef)}
+              target="_blank"
+              rel="noreferrer"
+              className="block w-full max-w-[320px] mt-6 max-sm:mx-auto"
+            >
+              <Button
+                className="w-full h-auto py-3 rounded-full normal-case tracking-normal text-base font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"
+                data-umami-event="click-garantia-cta"
+              >
+                Compre agora
+              </Button>
+            </Link>
           </div>
           <Image
             src="/stamp.png"
             alt="selo"
             width={200}
             height={200}
-            className="mb-4"
+            className="mb-4 max-sm:hidden"
           />
         </div>
       </div>

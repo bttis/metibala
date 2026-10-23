@@ -1,7 +1,13 @@
 'use client'
 
 import { useState } from 'react'
-import { IconPlus, IconMinus, IconHeadset } from '@tabler/icons-react'
+import {
+  IconPlus,
+  IconMinus,
+  IconHeadset,
+  IconBrandWhatsapp
+} from '@tabler/icons-react'
+import { whatsappLink } from './whatsapp'
 
 const faqs = [
   {
@@ -46,13 +52,16 @@ export default function Questions() {
   return (
     <section
       id="questions"
-      className="relative w-full h-auto overflow-hidden py-16 px-6 md:px-10"
+      className="relative w-full h-auto overflow-hidden pt-4 md:pt-8 pb-16 px-6 md:px-10"
     >
       <div className="max-w-[1400px] mx-auto grid grid-cols-1 lg:grid-cols-[220px_1fr_240px] gap-10 items-start">
-        <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05] max-md:text-center">
-          Dúvidas
-          <br /> frequentes
-        </h2>
+        <div className="max-md:text-center">
+          <h2 className="text-3xl font-teko font-bold uppercase leading-[1.05]">
+            Dúvidas
+            <br /> <span className="text-red-600">frequentes</span>
+          </h2>
+          <div className="mt-3 h-1 w-12 rounded-full bg-red-600 max-md:mx-auto" />
+        </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-x-8 gap-y-3">
           {faqs.map((faq, index) => {
@@ -61,8 +70,10 @@ export default function Questions() {
               <div
                 key={index}
                 onClick={() => toggle(index)}
-                className={`cursor-pointer text-sm rounded-lg px-5 py-4 transition-all duration-300 ${
-                  isOpen ? 'bg-white/10' : 'bg-white/[0.04]'
+                className={`cursor-pointer text-sm rounded-lg px-5 py-4 border-l-2 transition-all duration-300 ${
+                  isOpen
+                    ? 'bg-white/10 border-red-600'
+                    : 'bg-white/[0.04] border-transparent'
                 }`}
               >
                 <div className="flex items-center justify-between gap-4">
@@ -74,7 +85,7 @@ export default function Questions() {
                       <IconMinus className="size-4 text-black" />
                     </div>
                   ) : (
-                    <IconPlus className="size-5 shrink-0 text-white/40" />
+                    <IconPlus className="size-5 shrink-0 text-red-600" />
                   )}
                 </div>
                 {isOpen && (
@@ -87,7 +98,7 @@ export default function Questions() {
           })}
         </div>
 
-        <div className="max-w-[240px] flex items-start gap-3 max-md:mx-auto max-md:items-center">
+        <div className="flex items-center gap-3 max-md:mx-auto">
           <IconHeadset className="text-red-600 size-8 shrink-0" />
           <div>
             <h3 className="font-bold text-sm">Ainda tem dúvidas?</h3>
@@ -95,6 +106,15 @@ export default function Questions() {
               Nossa equipe está pronta para te ajudar.
             </p>
           </div>
+          <a
+            href={whatsappLink}
+            target="_blank"
+            rel="noreferrer"
+            aria-label="Falar no WhatsApp"
+            className="shrink-0 size-11 rounded-full bg-green-500 flex items-center justify-center hover:opacity-70 transition-opacity duration-300"
+          >
+            <IconBrandWhatsapp className="size-6 text-white" />
+          </a>
         </div>
       </div>
     </section>
