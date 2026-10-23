@@ -4,6 +4,7 @@ import {
   IconStarFilled,
   IconUser
 } from '@tabler/icons-react'
+import BenefitsCarousel from './benefits-carousel'
 
 type Testimonial = {
   text: string
@@ -29,6 +30,12 @@ const testimonials: Testimonial[] = [
   }
 ]
 
+const testimonialImages = [
+  '/libid-depoimento-1.png',
+  '/libid-depoimento-2.jpg',
+  '/libid-depoimento-3.jpg'
+]
+
 export default function Reviews() {
   return (
     <section
@@ -41,47 +48,59 @@ export default function Reviews() {
             O que nossos clientes dizem
           </h2>
           <p className="text-[13px] md:text-sm text-white/50 mt-4 leading-relaxed uppercase tracking-wide">
-            <span className="whitespace-nowrap">Histórias reais de mais equilíbrio,</span>
+            <span className="whitespace-nowrap">
+              Histórias reais de mais equilíbrio,
+            </span>
             <br className="md:hidden" /> confiança e bem-estar.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-          {testimonials.map((testimonial, index) => (
-            <div
-              key={index}
-              className="rounded-2xl bg-white text-neutral-800 p-5 shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
-            >
-              <div className="flex items-start gap-3">
-                <div className="relative size-12 shrink-0 overflow-hidden rounded-full bg-neutral-200 flex items-center justify-center">
-                  {testimonial.photo ? (
-                    <Image
-                      src={testimonial.photo}
-                      alt={testimonial.name ?? 'Cliente'}
-                      fill
-                      sizes="48px"
-                      className="object-cover"
-                    />
-                  ) : (
-                    <IconUser className="size-6 text-neutral-500" />
-                  )}
-                </div>
-                <div className="flex-1">
-                  <p className="font-bold text-sm">
-                    {testimonial.name ?? 'Cliente Libid 365'}
-                  </p>
-                  <div className="flex text-yellow-400 mt-1">
-                    {Array.from({ length: 5 }).map((_, i) => (
-                      <IconStarFilled key={i} className="size-4" />
-                    ))}
+        <BenefitsCarousel
+          items={testimonials.flatMap((testimonial, index) => [
+            <div key={`text-${index}`} className="h-full flex items-center">
+              <div className="rounded-2xl bg-white text-neutral-800 p-5 shadow-[0_4px_20px_rgba(0,0,0,0.35)]">
+                <div className="flex items-start gap-3">
+                  <div className="relative size-12 shrink-0 overflow-hidden rounded-full bg-neutral-200 flex items-center justify-center">
+                    {testimonial.photo ? (
+                      <Image
+                        src={testimonial.photo}
+                        alt={testimonial.name ?? 'Cliente'}
+                        fill
+                        sizes="48px"
+                        className="object-cover"
+                      />
+                    ) : (
+                      <IconUser className="size-6 text-neutral-500" />
+                    )}
                   </div>
+                  <div className="flex-1">
+                    <p className="font-bold text-sm">
+                      {testimonial.name ?? 'Cliente Libid 365'}
+                    </p>
+                    <div className="flex text-yellow-400 mt-1">
+                      {Array.from({ length: 5 }).map((_, i) => (
+                        <IconStarFilled key={i} className="size-4" />
+                      ))}
+                    </div>
+                  </div>
+                  <IconBrandWhatsapp className="size-7 text-green-500 shrink-0" />
                 </div>
-                <IconBrandWhatsapp className="size-7 text-green-500 shrink-0" />
+                <p className="text-sm leading-snug mt-3">{testimonial.text}</p>
               </div>
-              <p className="text-sm leading-snug mt-3">{testimonial.text}</p>
-            </div>
-          ))}
-        </div>
+            </div>,
+            <Image
+              key={`image-${index}`}
+              src={testimonialImages[index]}
+              alt={`Depoimento de cliente ${index + 1}`}
+              width={1320}
+              height={2346}
+              sizes="(min-width: 768px) 33vw, 88vw"
+              className="w-full h-auto rounded-2xl shadow-[0_4px_20px_rgba(0,0,0,0.35)]"
+            />
+          ])}
+          itemClassName="basis-[88%] md:basis-1/3"
+          interval={6000}
+        />
       </div>
     </section>
   )
