@@ -100,6 +100,10 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             <br />
             <span className="text-red-600">insegurança começa.</span>
           </h2>
+          <p className="relative z-10 text-sm text-white/70 mt-2 leading-snug max-md:text-center">
+            Por que você deve usar o{' '}
+            <span className="font-bold text-white">Libid 365</span>?
+          </p>
           <div className="max-md:flex max-md:items-center max-md:gap-4">
             <div className="md:hidden relative w-[50%] shrink-0">
               <div className="absolute inset-y-[2%] -inset-x-[5%] rounded-full bg-red-900/80 blur-2xl" />
@@ -111,14 +115,10 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
                 className="relative w-full h-auto"
               />
             </div>
-            <div className="relative z-10 max-md:-ml-6">
-              <p className="text-sm text-white/70 mt-2 leading-snug">
-                Por que você deve usar o{' '}
-                <span className="font-bold text-white">Libid 365</span>?
-              </p>
-              <div className="mt-3 space-y-2">
+            <div className="relative z-10 max-md:-ml-14">
+              <div className="mt-2 space-y-2">
                 {reasons.map((reason) => (
-                  <div key={reason.label} className="flex items-center gap-3">
+                  <div key={reason.label} className="flex items-center gap-1">
                     <div className="size-8 shrink-0 rounded-full bg-red-600 flex items-center justify-center">
                       <reason.icon className="text-white size-5" />
                     </div>
