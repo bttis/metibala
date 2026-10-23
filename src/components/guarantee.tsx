@@ -51,7 +51,7 @@ export default function Guarantee({
 }) {
   return (
     <div>
-      <div className="relative w-full max-w-[1200px] h-[680px] md:h-[440px] mx-auto mt-20 rounded-3xl overflow-hidden">
+      <div className="relative w-full max-w-[1200px] md:min-h-[440px] mx-auto mt-8 md:mt-20 rounded-3xl overflow-hidden">
         <div className="absolute w-full h-full inset-0 bg-gradient-to-t from-black/30 to-black z-[5] md:hidden" />
         <Image
           src="/refund.png"
@@ -59,8 +59,8 @@ export default function Guarantee({
           fill
           className="object-cover max-sm:object-[66%_100%]"
         />
-        <div className="relative z-10 flex max-sm:flex-col justify-center gap-20 md:gap-52 items-center w-full h-full">
-          <div className="text-white/90 p-4 max-w-[350px] md:max-w-[520px] rounded-xl">
+        <div className="relative z-10 flex max-sm:flex-col justify-center gap-20 md:gap-52 items-center w-full md:min-h-[440px] pt-0 pb-10 md:py-10">
+          <div className="text-white/90 p-4 max-sm:pt-0 max-w-[350px] md:max-w-[520px] rounded-xl">
             <h2 className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl max-sm:text-center">
               Temos um desafio, caso você não tenha resultados em 30 dias,
               devolvemos{' '}
