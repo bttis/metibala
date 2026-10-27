@@ -98,7 +98,7 @@ export default function Benefits() {
             </p>
           </div>
 
-          <div className="relative z-10 -mt-[30vw] w-full px-4">
+          <div className="relative z-10 -mt-[48vw] w-full px-4">
             <Link href="#kits" className="block">
               <Button
                 className="w-full h-auto py-3 rounded-full normal-case tracking-normal text-[4.6vw] font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"

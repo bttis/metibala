@@ -4,14 +4,14 @@ import Link from 'next/link'
 const message = encodeURIComponent(
   'Olá, gostaria de saber mais sobre o Libid 365'
 )
-const phone = '5533999650074'
+const phone = '5533998257183'
 export const whatsappLink = `https://wa.me/${phone}?text=${message}`
 
 export default function WhatsApp() {
   return (
     <Link
       href={whatsappLink}
-      className="fixed bottom-2 right-2 md:bottom-8 md:right-8 z-50"
+      className="fixed bottom-10 right-2 md:bottom-8 md:right-8 z-50"
       target="_blank"
       rel="noreferrer"
     >
