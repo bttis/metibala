@@ -33,7 +33,7 @@ export default function MobileTopbar({
 
   return (
     <div className="md:hidden relative">
-      <div className="flex items-center gap-2 bg-gradient-to-r from-red-800 via-red-700 to-red-900 px-4 py-2.5">
+      <div className="flex items-center gap-2 bg-gradient-to-r from-red-800 via-red-700 to-red-900 px-4 py-1.5">
         <p className="shrink-0 font-bold text-[3.6vw] leading-[1.1] uppercase">
           Desconto
           <br />
@@ -57,12 +57,12 @@ export default function MobileTopbar({
           type="button"
           aria-label={open ? 'Fechar menu' : 'Abrir menu'}
           onClick={() => setOpen((value) => !value)}
-          className="shrink-0 flex items-center justify-center size-11 rounded-xl bg-white text-black shadow-lg"
+          className="shrink-0 flex items-center justify-center size-9 rounded-lg bg-white text-black shadow-lg"
         >
           {open ? (
-            <IconX className="size-6" />
+            <IconX className="size-5" />
           ) : (
-            <IconMenu2 className="size-6" />
+            <IconMenu2 className="size-5" />
           )}
         </button>
       </div>
