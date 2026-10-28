@@ -11,7 +11,7 @@ export default function WhatsApp() {
   return (
     <Link
       href={whatsappLink}
-      className="fixed bottom-18 right-2 md:bottom-8 md:right-8 z-50"
+      className="fixed bottom-6 right-2 md:bottom-8 md:right-8 z-50"
       target="_blank"
       rel="noreferrer"
     >
