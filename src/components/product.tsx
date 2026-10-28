@@ -10,7 +10,7 @@ interface ProductProps {
   price: number
   installmentPrice?: number
   cta: string
-  productLink: string
+  variantId: number
   umamiEvent: string
   mostPopular?: boolean
   affiliateRef?: string
@@ -26,20 +26,27 @@ export function getProductLink(
     : productLink
 }
 
+export function getCartLink(variantId: number, affiliateRef?: string) {
+  const cartLink = `https://maisvit.com/cart/add?id=${variantId}&quantity=1`
+  return affiliateRef
+    ? `${cartLink}&metadata[affiliate]=${affiliateRef}`
+    : cartLink
+}
+
 export function Product({
   cta,
   imageUrl,
   price,
   title,
   subtitle,
-  productLink,
+  variantId,
   installmentPrice,
   umamiEvent,
   mostPopular,
   affiliateRef,
   className = ''
 }: ProductProps) {
-  const finalLink = getProductLink(affiliateRef, productLink)
+  const finalLink = getCartLink(variantId, affiliateRef)
 
   return (
     <div

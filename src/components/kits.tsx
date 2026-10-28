@@ -63,7 +63,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             cta="Comprar Agora"
             imageUrl="/duas-unidades.png"
             umamiEvent="click-kit-2"
-            productLink="https://maisvit.com/products/libid-365"
+            variantId={46632028405926}
             affiliateRef={affiliateRef}
           />
 
@@ -75,7 +75,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             cta="Comprar Agora"
             imageUrl="/tres-unidades.png"
             umamiEvent="click-kit-3"
-            productLink="https://maisvit.com/products/libid-365"
+            variantId={46632030666918}
             mostPopular
             affiliateRef={affiliateRef}
             className="max-md:order-first"
@@ -89,7 +89,7 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             cta="Comprar Agora"
             imageUrl="/uma-unidade.png"
             umamiEvent="click-kit-1"
-            productLink="https://maisvit.com/products/libid-365"
+            variantId={46632026112166}
             affiliateRef={affiliateRef}
           />
         </div>
