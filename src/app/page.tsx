@@ -32,7 +32,7 @@ export default async function Home({
           <Enough />
         </div>
         <Kits affiliateRef={ref} />
-        <Guarantee affiliateRef={ref} />
+        <Guarantee />
         <Questions />
       </main>
       <Footer />

@@ -1,6 +1,5 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { getProductLink } from './product'
 import { Button } from './ui/button'
 import BenefitsCarousel from './benefits-carousel'
 
@@ -44,11 +43,7 @@ const guaranteeCards = guarantees.map((guarantee) => (
   </div>
 ))
 
-export default function Guarantee({
-  affiliateRef
-}: {
-  affiliateRef?: string
-}) {
+export default function Guarantee() {
   return (
     <div>
       <div className="relative w-full max-w-[1200px] md:min-h-[440px] mx-auto mt-8 md:mt-20 rounded-3xl overflow-hidden">
@@ -59,45 +54,42 @@ export default function Guarantee({
           fill
           className="object-cover max-sm:object-[66%_100%]"
         />
-        <div className="relative z-10 flex max-sm:flex-col justify-center gap-20 md:gap-52 items-center w-full md:min-h-[440px] pt-0 pb-10 md:py-10">
-          <div className="text-white/90 p-4 max-sm:pt-0 max-w-[350px] md:max-w-[520px] rounded-xl">
-            <h2 className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl max-sm:text-center">
-              Temos um desafio, caso você não tenha resultados em 30 dias,
-              devolvemos{' '}
-              <span className="text-red-600">100% do seu dinheiro!</span>
-            </h2>
+        <div className="relative z-10 flex flex-col items-center justify-center w-full md:min-h-[440px] pt-0 pb-10 md:py-10 px-4">
+          <div className="flex max-sm:flex-col justify-center gap-20 md:gap-52 items-center w-full">
+            <div className="text-white/90 p-4 max-sm:pt-0 max-w-[350px] md:max-w-[520px] rounded-xl">
+              <h2 className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl max-sm:text-center">
+                Temos um desafio, caso você não tenha resultados em 30 dias,
+                devolvemos{' '}
+                <span className="text-red-600">100% do seu dinheiro!</span>
+              </h2>
+              <Image
+                src="/stamp.png"
+                alt="selo"
+                width={160}
+                height={160}
+                className="sm:hidden mx-auto my-4"
+              />
+              <p className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl sm:mt-4 max-sm:text-center">
+                Este mês completamos 2 anos de lançamento do desafio com{' '}
+                <span className="text-red-600">nenhum centavo devolvido.</span>
+              </p>
+            </div>
             <Image
               src="/stamp.png"
               alt="selo"
-              width={160}
-              height={160}
-              className="sm:hidden mx-auto my-4"
+              width={200}
+              height={200}
+              className="mb-4 max-sm:hidden"
             />
-            <p className="font-teko font-bold uppercase leading-[1.05] text-3xl md:text-5xl sm:mt-4 max-sm:text-center">
-              Este mês completamos 2 anos de lançamento do desafio com{' '}
-              <span className="text-red-600">nenhum centavo devolvido.</span>
-            </p>
-            <Link
-              href={getProductLink(affiliateRef)}
-              target="_blank"
-              rel="noreferrer"
-              className="block w-full max-w-[320px] mt-6 max-sm:mx-auto"
-            >
-              <Button
-                className="w-full h-auto py-3 rounded-full normal-case tracking-normal text-base font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"
-                data-umami-event="click-garantia-cta"
-              >
-                Compre agora
-              </Button>
-            </Link>
           </div>
-          <Image
-            src="/stamp.png"
-            alt="selo"
-            width={200}
-            height={200}
-            className="mb-4 max-sm:hidden"
-          />
+          <Link href="#kits" className="block w-full max-w-[320px] mt-2">
+            <Button
+              className="w-full h-auto py-3 rounded-full normal-case tracking-normal text-base font-bold text-black bg-gradient-to-b from-yellow-300 to-yellow-400 hover:bg-yellow-300 shadow-[0_8px_30px_rgba(250,204,21,0.35)]"
+              data-umami-event="click-garantia-cta"
+            >
+              Compre agora
+            </Button>
+          </Link>
         </div>
       </div>
 
