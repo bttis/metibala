@@ -9,11 +9,13 @@ import { useRef, useState } from 'react'
 export default function Specialist() {
   const videoRef = useRef<HTMLVideoElement>(null)
   const [isPlaying, setIsPlaying] = useState(false)
+  const [hasStarted, setHasStarted] = useState(false)
 
   const handlePlay = () => {
     if (videoRef.current) {
       videoRef.current.play()
       setIsPlaying(true)
+      setHasStarted(true)
     }
   }
 
@@ -36,6 +38,15 @@ export default function Specialist() {
         </div>
 
         <div className="relative w-full max-w-[280px] mx-auto">
+          {!hasStarted && (
+            <Image
+              src="/cover-video.png"
+              alt="Dra. Victoria falando sobre o Libid 365"
+              fill
+              sizes="280px"
+              className="rounded-2xl object-cover pointer-events-none"
+            />
+          )}
           {!isPlaying && (
             <button
               onClick={handlePlay}
@@ -53,6 +64,7 @@ export default function Specialist() {
           <video
             ref={videoRef}
             src="/metibala-video-2.mp4"
+            poster="/cover-video.png"
             playsInline
             onClick={handlePause}
             className="w-[280px] h-[500px] rounded-2xl object-cover cursor-pointer"
