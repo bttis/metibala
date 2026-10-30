@@ -56,26 +56,27 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
 
         <div className="flex flex-col md:flex-row justify-center gap-8 w-full">
           <Product
-            title="2 FRASCOS"
-            subtitle="Mais resultados, mais vitalidade"
-            price={159.9}
-            installmentPrice={15.99}
+            title="3 FRASCOS + 2 GRÁTIS"
+            subtitle="Resultados ainda melhores"
+            price={269.9}
+            installmentPrice={26.9}
             cta="Comprar Agora"
-            imageUrl="/duas-unidades.png"
-            umamiEvent="click-kit-2"
-            variantId={46632028405926}
+            imageUrl="/Cinco_Frascos_Libid_365_em_Estudio.png"
+            umamiEvent="click-kit-3"
+            variantId={46632030666918}
+            badge="Melhor Valor"
             affiliateRef={affiliateRef}
           />
 
           <Product
-            title="3 FRASCOS"
-            subtitle="Resultados ainda melhores"
-            price={199.9}
-            installmentPrice={19.99}
+            title="2 FRASCOS + 1 GRÁTIS"
+            subtitle="Mais resultados, mais vitalidade"
+            price={179.9}
+            installmentPrice={17.9}
             cta="Comprar Agora"
             imageUrl="/tres-unidades.png"
-            umamiEvent="click-kit-3"
-            variantId={46632030666918}
+            umamiEvent="click-kit-2"
+            variantId={46632028405926}
             mostPopular
             affiliateRef={affiliateRef}
             className="max-md:order-first"
@@ -85,11 +86,12 @@ export default function Kits({ affiliateRef }: { affiliateRef?: string }) {
             title="1 FRASCO"
             subtitle="Ideal para começar"
             price={89.9}
-            installmentPrice={8.99}
+            installmentPrice={8.9}
             cta="Comprar Agora"
             imageUrl="/uma-unidade.png"
             umamiEvent="click-kit-1"
             variantId={46632026112166}
+            badge="Básico"
             affiliateRef={affiliateRef}
           />
         </div>

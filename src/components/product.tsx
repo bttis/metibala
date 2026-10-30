@@ -13,6 +13,7 @@ interface ProductProps {
   variantId: number
   umamiEvent: string
   mostPopular?: boolean
+  badge?: string
   affiliateRef?: string
   className?: string
 }
@@ -43,22 +44,28 @@ export function Product({
   installmentPrice,
   umamiEvent,
   mostPopular,
+  badge,
   affiliateRef,
   className = ''
 }: ProductProps) {
   const finalLink = getCartLink(variantId, affiliateRef)
+  const badgeLabel = badge ?? (mostPopular ? 'Mais Escolhido' : undefined)
 
   return (
     <div
       className={`relative rounded-2xl w-full md:w-[270px] flex flex-col bg-white/[0.04] ${
         mostPopular
-          ? 'border-4 border-red-600 shadow-[0_0_30px_-10px_rgba(207,13,47,0.6)]'
-          : 'border border-white/10'
+          ? 'border-4 border-yellow-400 shadow-[0_0_30px_-10px_rgba(250,204,21,0.6)]'
+          : 'border border-red-600'
       } ${className}`}
     >
-      {mostPopular && (
-        <div className="absolute -top-4 left-1/2 -translate-x-1/2 bg-red-600 text-white px-4 py-1.5 rounded-full font-bold text-[11px] uppercase tracking-wide whitespace-nowrap">
-          Mais Escolhido
+      {badgeLabel && (
+        <div
+          className={`absolute -top-4 left-1/2 -translate-x-1/2 px-4 py-1.5 rounded-full font-bold text-[11px] uppercase tracking-wide whitespace-nowrap ${
+            mostPopular ? 'bg-yellow-400 text-black' : 'bg-red-600 text-white'
+          }`}
+        >
+          {badgeLabel}
         </div>
       )}
       <div className="flex flex-col items-center text-center px-6 pt-8 pb-6">
