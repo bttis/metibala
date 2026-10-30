@@ -3,7 +3,7 @@ import { ReactNode } from 'react'
 import Image from 'next/image'
 import Link from 'next/link'
 import { Inter, Newsreader } from 'next/font/google'
-import { getCartLink, getProductLink } from '@/components/product'
+import { getProductLink } from '@/components/product'
 import { convertToBRL } from '@/utils/convert-to-brl'
 import { Accordion } from './accordion'
 
@@ -227,6 +227,7 @@ export default async function Saude({
   searchParams: Promise<{ ref?: string }>
 }) {
   const { ref } = await searchParams
+  const productLink = getProductLink(ref)
 
   return (
     <div
@@ -260,9 +261,14 @@ export default async function Saude({
             >
               Composição
             </a>
-            <a href="#kits" className="font-bold text-[#a8243a]">
+            <Link
+              href={productLink}
+              target="_blank"
+              rel="noreferrer"
+              className="font-bold text-[#a8243a]"
+            >
               Escolher meu kit <span className="ml-3">↗</span>
-            </a>
+            </Link>
           </nav>
         </div>
       </header>
@@ -310,12 +316,14 @@ export default async function Saude({
               </div>
             </div>
 
-            <a
-              href="#libid"
+            <Link
+              href={productLink}
+              target="_blank"
+              rel="noreferrer"
               className="mt-6 inline-flex items-center gap-9 bg-[#a8243a] px-6 py-4 text-[13px] font-bold text-white hover:bg-[#8f1d31] transition-colors"
             >
               Conheça o Libid 365 <span>↗</span>
-            </a>
+            </Link>
             <a
               href="#entenda"
               className="mt-6 block w-fit border-b border-[#5f5a56] text-[11px] text-[#5f5a56]"
@@ -508,7 +516,7 @@ export default async function Saude({
               ))}
             </dl>
             <Link
-              href={getProductLink(ref)}
+              href={productLink}
               target="_blank"
               rel="noreferrer"
               data-umami-event="saude-click-comprar"
@@ -667,12 +675,14 @@ export default async function Saude({
                 As condições de novembro estão logo abaixo.
               </p>
             </div>
-            <a
-              href="#kits"
+            <Link
+              href={productLink}
+              target="_blank"
+              rel="noreferrer"
               className="inline-flex items-center justify-between gap-9 bg-[#a8243a] px-6 py-4 text-[13px] font-bold text-white hover:bg-[#8f1d31] transition-colors"
             >
               Escolher meu kit Libid 365 <span>↗</span>
-            </a>
+            </Link>
           </div>
         </section>
 
@@ -748,7 +758,7 @@ export default async function Saude({
                 Os presentes já estão incluídos no total de frascos recebidos.
               </p>
               <Link
-                href={getProductLink(ref)}
+                href={productLink}
                 target="_blank"
                 rel="noreferrer"
                 className="mt-6 inline-block border-b border-white/80 pb-1.5 text-[11px]"
@@ -824,7 +834,7 @@ export default async function Saude({
                     {convertToBRL(kit.price / total)} por frasco recebido
                   </p>
                   <Link
-                    href={getCartLink(kit.variantId, ref)}
+                    href={productLink}
                     target="_blank"
                     rel="noreferrer"
                     data-umami-event={kit.umamiEvent}
