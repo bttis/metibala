@@ -340,7 +340,7 @@ export default async function Saude({
             <div className="relative">
               <div className="absolute -left-4 -top-4 right-4 bottom-4 border border-[#d8c9bd] max-md:hidden" />
               <Image
-                src="/saude/foto-doutora.webp"
+                src="/saude/dra-1.jpeg"
                 alt="Dra. Victória Barbalho"
                 width={476}
                 height={544}
@@ -430,10 +430,10 @@ export default async function Saude({
           className="grid grid-cols-1 md:grid-cols-[340px_1fr] gap-10 md:gap-[75px] bg-[#f1ebe6] px-6 md:px-[50px] py-12 md:py-[68px] scroll-mt-6"
         >
           <Image
-            src="/saude/doutora.jpg"
+            src="/saude/dra-2.jpeg"
             alt="Dra. Victória Barbalho"
             width={336}
-            height={383}
+            height={448}
             className="w-full rounded-xl self-center"
           />
           <div>
