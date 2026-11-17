@@ -5,6 +5,7 @@ import localFont from 'next/font/local'
 import { Barlow, Playfair_Display } from 'next/font/google'
 import Script from 'next/script'
 import { env } from '@/env'
+import { MetaPixel } from '@/components/meta-pixel'
 
 const barlowSans = Barlow({
   variable: '--font-sans',
@@ -61,6 +62,9 @@ export default function RootLayout({
         className={`${barlowSans.variable} ${tekoFont.variable} ${playfairFont.variable} antialiased`}
       >
         {children}
+        {env.NEXT_PUBLIC_META_PIXEL_ID && (
+          <MetaPixel pixelId={env.NEXT_PUBLIC_META_PIXEL_ID} />
+        )}
       </body>
     </html>
   )
